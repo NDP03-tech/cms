@@ -5,20 +5,20 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-
+import { Role } from 'modules/auth/domain/enums/roles.enum';
 @Entity('users')
 export class UserOrmEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({ unique: true })
-  email: string;
+  username: string;
 
   @Column({ name: 'password_hash' })
   passwordHash: string;
 
-  @Column({ name: 'role_id' })
-  roleId: string;
+  @Column({ type: 'enum', enum: Role })
+  role: Role;
 
   @Column({ name: 'is_active', default: true })
   isActive: boolean;

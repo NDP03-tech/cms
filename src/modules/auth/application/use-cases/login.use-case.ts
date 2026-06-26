@@ -1,5 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IUserRepository, USER_REPOSITORY } from '../../domain/repositories/user.repository.interface';
+import {
+  IUserRepository,
+  USER_REPOSITORY,
+} from '../../domain/repositories/user.repository.interface';
 import { LoginDto, TokenResponseDto } from '../dtos/login.dto';
 
 @Injectable()

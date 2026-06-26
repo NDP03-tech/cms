@@ -1,9 +1,11 @@
+// user.repository.interface.ts
 import { User } from '../entities/user.entity';
 
 export interface IUserRepository {
-  findByEmail(email: string): Promise<User | null>;
   findById(id: string): Promise<User | null>;
-  save(user: User): Promise<User>;
+  findByUsername(username: string): Promise<User | null>;
+  existsByUsername(username: string): Promise<boolean>;
+  save(user: User): Promise<void>; // ✅ void, không trả về User
 }
 
 export const USER_REPOSITORY = Symbol('IUserRepository');

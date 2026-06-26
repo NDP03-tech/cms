@@ -44,7 +44,7 @@ export class User extends BaseEntity {
     return new User(
       props.id,
       props.username.trim().toLowerCase(),
-      HashedPassword.fromHash(props.passwordHash),
+      HashedPassword.createFromHash(props.passwordHash),
       props.role,
       props.isActive ?? true,
       now,
@@ -66,7 +66,7 @@ export class User extends BaseEntity {
     return new User(
       props.id,
       props.username,
-      HashedPassword.fromHash(props.passwordHash),
+      HashedPassword.createFromHash(props.passwordHash),
       props.role,
       props.isActive,
       props.createdAt,
@@ -75,10 +75,6 @@ export class User extends BaseEntity {
   }
 
   // ─── Business methods ──────────────────────────────────────────────────────
-
-  hasPermission(permission: Permission): boolean {
-    return RolePermissions[this.role].includes(permission);
-  }
 
   isAdmin(): boolean {
     return this.role === Role.ADMIN;
