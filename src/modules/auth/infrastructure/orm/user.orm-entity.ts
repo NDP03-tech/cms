@@ -17,7 +17,7 @@ export class UserOrmEntity {
   @Column({ name: 'password_hash' })
   passwordHash: string;
 
-  @Column({ type: 'enum', enum: Role })
+  @Column({ type: 'simple-enum', enum: Role })
   role: Role;
 
   @Column({ name: 'is_active', default: true })

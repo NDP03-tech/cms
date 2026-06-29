@@ -3,6 +3,7 @@ import {
   BusinessRuleException,
   DomainException,
 } from '../../../../shared/exceptions/domain.exception';
+import { randomUUID } from 'crypto';
 import { Role } from '../enums/roles.enum';
 import { HashedPassword } from '../value-objects/hashed-password.vo';
 
@@ -22,7 +23,7 @@ export class User extends BaseEntity {
   // ─── Factory: tạo user mới ─────────────────────────────────────────────────
 
   static create(props: {
-    id: string;
+    id?: string;
     username: string;
     passwordHash: string;
     role: Role;
@@ -42,7 +43,7 @@ export class User extends BaseEntity {
 
     const now = new Date();
     return new User(
-      props.id,
+      props.id ?? randomUUID(),
       props.username.trim().toLowerCase(),
       HashedPassword.createFromHash(props.passwordHash),
       props.role,

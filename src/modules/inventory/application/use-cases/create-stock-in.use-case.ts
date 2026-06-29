@@ -1,7 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { IStockInRepository, STOCK_IN_REPOSITORY } from '../../domain/repositories/stock-in.repository.interface';
+import { STOCK_IN_REPOSITORY } from '../../domain/repositories/stock-in.repository.interface';
 import { CreateStockInDto } from '../dtos/create-stock-in.dto';
+import type { IStockInRepository } from '../../domain/repositories/stock-in.repository.interface';
 
 @Injectable()
 export class CreateStockInUseCase {
