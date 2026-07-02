@@ -15,4 +15,12 @@ export class Money {
     const newAmount = this.amount + other.amount;
     return new Money(this.currency, newAmount);
   }
+
+  get amountValue(): number {
+    return this.amount;
+  }
+
+  get currencyValue(): string {
+    return this.currency;
+  }
 }

@@ -1,5 +1,3 @@
-// domain/repositories/product.repository.interface.ts
-import { Money } from '../value-objects/money.vo';
 import { SKU } from '../value-objects/sku.vo';
 import { Product } from '../entities/product.entity';
 
@@ -27,3 +25,5 @@ export interface IProductRepository {
   save(product: Product): Promise<void>;
   delete(id: string): Promise<void>;
 }
+
+export const PRODUCT_REPOSITORY = Symbol('IProductRepository');
